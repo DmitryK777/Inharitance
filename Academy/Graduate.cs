@@ -7,7 +7,7 @@ using System.Xml.Linq;
 
 namespace Academy
 {
-	internal class Graduate:Student
+	public class Graduate:Student
 	{
 		public string Subject { get; set; }
 		public Graduate

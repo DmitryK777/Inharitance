@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Academy
 {
-	internal class Teacher:Human
+	public class Teacher:Human
 	{
 		public string Speciality { get; set; }
 		int experince;

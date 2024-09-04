@@ -3,9 +3,11 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Academy
 {
@@ -70,13 +72,63 @@ namespace Academy
 				new Graduate("Schreder", "Hank", 40, "Criminalistic", "OBN", 50, 80, "How to catch Heisenberg")
 			};
 
-			for (int i = 0; i < group.Length; i++)
+            Console.WriteLine(delimiter);
+            for (int i = 0; i < group.Length; i++)
 			{
 				Console.WriteLine(group[i]);
 			}
+            Console.WriteLine(delimiter);
+
+
+            /*
+			// Сохранение в файл
+			using (var stream = new FileStream(@"B:\kd\top\Лекции и ДЗ\43) 25.08.2024\Inharitance\data.xml", FileMode.Create))
+			{
+				var serializer = new XmlSerializer(typeof(Human));
+				serializer.Serialize(stream, group);
+			}
+
+			// Чтение из файла
+			Human data;
+			using (var stream = new FileStream(@"B:\kd\top\Лекции и ДЗ\43) 25.08.2024\Inharitance\data.xml", FileMode.Open))
+			{
+				var serializer = new XmlSerializer(typeof(Human));
+				data = serializer.Deserialize(stream) as Human;
+			}
+
+			for (int i = 0; i < data.Count; i++)
+			{
+				Console.WriteLine(data(i));
+            }
+			*/
+
+            string path = @"B:\kd\top\Лекции и ДЗ\43) 25.08.2024\Inharitance\data.txt";
+
+			try
+			{
+				using (FileStream fs = File.Create(path))
+				{
+					for (int i = 0; i < group.Length; i++)
+					{
+						byte[] info = new UTF8Encoding(true).GetBytes(group[i].ToString() + "\n");
+						fs.Write(info, 0, info.Length);
+					}
+				}
+
+				using (StreamReader sr = File.OpenText(path))
+				{
+					string s = "";
+					while ((s = sr.ReadLine()) != null)
+					{
+						Console.WriteLine(s);
+					}
+				}
+			}
+			catch (Exception ex) { Console.WriteLine(ex.ToString()); }
+            Console.WriteLine(delimiter);
 #endif
 
 
-		}
+        }
 	}
 }

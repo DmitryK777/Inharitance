@@ -6,11 +6,19 @@ using System.Threading.Tasks;
 
 namespace Academy
 {
-	internal class Human
+	public class Human
 	{
 		public string LastName { get; set; }
 		public string FirstName { get; set; }
 		public uint Age { get; set; }
+
+		/*
+		//public List<Human> HumanList { get; set; }
+		public Human()
+		{
+			this.HumanList = new List<Human>();
+		}
+		*/
 
 		public Human(string lastName, string firstName, uint age)
 		{

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Academy
 {
-	class Student:Human
+	public class Student:Human
 	{
 		public string Speciality {  get; set; }
 		public string Group {  get; set; }
