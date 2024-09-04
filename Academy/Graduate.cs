@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Academy
 {
@@ -15,20 +16,31 @@ namespace Academy
 				string speciality, string group, double rating, double attendance,
 				string subject
 			):base(lastName, firstName, age, speciality, group, rating, attendance)
-		{ 
-			Subject = subject;
+		{
+			Init(subject);
             Console.WriteLine($"GraduateConstructor: \t{GetHashCode()}");
         }
 
 		public Graduate(Student student, string subject):base(student)
 		{
-			Subject = Subject;
+			Init(subject);
 			Console.WriteLine($"GraduateConstructor: \t{GetHashCode()}");
+		}
+
+		public Graduate(Graduate other) : base(other)
+		{
+			Init(other.Subject);
+			Console.WriteLine($"GraduateCopyConstructor: \t{GetHashCode()}");
 		}
 
 		~Graduate()
 		{
 			Console.WriteLine($"GraduateDestructor: \t{GetHashCode()}");
+		}
+
+		void Init(string subject)
+		{ 
+			this.Subject = subject;
 		}
 
 		public void Print()

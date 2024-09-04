@@ -43,6 +43,12 @@ namespace Academy
 			Console.WriteLine($"TeacherDestructor: \t{GetHashCode()}");
 		}
 
+		void Init(string speciality, int experince)
+		{
+			this.Speciality = speciality;
+			this.Experince = experince;
+		}
+
 		public void Print()
 		{
 			base.Print();
@@ -54,10 +60,6 @@ namespace Academy
 			return base.ToString() + $", {Speciality}, {Experince}";
 		}
 
-		void Init(string speciality, int experince)
-		{
-			this.Speciality = speciality;
-			this.Experince = experince;
-		}
+		
 	}
 }

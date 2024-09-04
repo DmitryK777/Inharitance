@@ -10,7 +10,7 @@ namespace Academy
 	{
 		public string Speciality {  get; set; }
 		public string Group {  get; set; }
-		public double rating;
+		double rating;
 		double attendance;
 
 		public double Rating
@@ -37,7 +37,8 @@ namespace Academy
 
 		public Student
 			(
-			Human human, string speciality, string group, double rating, double attendance
+			Human human, 
+			string speciality, string group, double rating, double attendance
 			) : base(human)
 		{
 			Init(speciality, group, rating, attendance);
@@ -65,7 +66,7 @@ namespace Academy
 		public void Print()
 		{
 			base.Print();
-			Console.WriteLine($"{Speciality} {Group} {Rating} {Attendance}");
+			Console.WriteLine($" {Speciality} {Group} {Rating} {Attendance}");
 		}
 
 		public override string ToString()

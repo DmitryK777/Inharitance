@@ -62,7 +62,6 @@ namespace Academy
 			Console.WriteLine(delimiter);
 
 			Teacher t_diaz = new Teacher(diaz, "Weapons distribution", 25);
-#endif
 
 			Human[] group = new Human[]
 			{
@@ -74,7 +73,10 @@ namespace Academy
 			for (int i = 0; i < group.Length; i++)
 			{
 				Console.WriteLine(group[i]);
-            }
+			}
+#endif
+
+
 		}
 	}
 }

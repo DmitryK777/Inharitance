@@ -14,21 +14,24 @@ namespace Academy
 
 		public Human(string lastName, string firstName, uint age)
 		{
-			LastName = lastName;
-			FirstName = firstName;
-			Age = age;
+			Init(lastName, firstName, age);
             Console.WriteLine($"HumanConstructor: \t{GetHashCode()}");
         }
 
 		public Human(Human other)
 		{
-			this.LastName = other.LastName;
-			this.FirstName = other.FirstName;
-			this.Age = other.Age;
+			Init(other.LastName, other.FirstName, other.Age);
 			Console.WriteLine($"HumanCopyConstructor: \t{GetHashCode()}");
 		}
 
 		~Human() {Console.WriteLine($"HumanDestructor: \t{GetHashCode()}");}
+
+		void Init(string lastName, string firstName, uint age)
+		{
+			this.LastName=lastName;
+			this.FirstName=firstName;
+			this.Age = age;
+		}
 
 		public void Print()
 		{
